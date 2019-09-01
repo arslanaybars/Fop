@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\fop\Fop.csproj" />
+    <ProjectReference Include="..\..\src\Fop.csproj" />
   </ItemGroup>
 
 </Project>

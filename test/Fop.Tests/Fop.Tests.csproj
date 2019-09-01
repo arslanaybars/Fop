@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\sample\Sample.Entity\Sample.Entity.csproj" />
-    <ProjectReference Include="..\..\src\fop\Fop.csproj" />
+    <ProjectReference Include="..\..\src\Fop.csproj" />
   </ItemGroup>
 
 </Project>

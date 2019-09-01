@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Data", "sample\Sampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Api", "sample\Sample.Api\Sample.Api.csproj", "{DF0D799E-C250-4178-B88D-CF63199CF0D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fop", "src\fop\Fop.csproj", "{88574833-8D9E-45DF-9B94-1838965CBCAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fop", "src\Fop.csproj", "{88574833-8D9E-45DF-9B94-1838965CBCAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fop.Tests", "test\Fop.Tests\Fop.Tests.csproj", "{F5A6365C-590C-43F8-9078-307FE637ECB7}"
 EndProject
