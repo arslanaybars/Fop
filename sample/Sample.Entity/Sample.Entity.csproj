@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <Authors>Aybars Arslan</Authors>
+    <Company>AybSoft</Company>
+    <Copyright>Aybars Arslan</Copyright>
+    <Copyright>Aybars Arslan</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\fop\Fop.csproj" />
+  </ItemGroup>
+
+</Project>

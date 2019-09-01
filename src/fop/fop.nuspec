@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Fop</id>
+    <version>1.0.0</version>
+    <title>Fop | Filter, Order and Page Asp.Net Core</title>
+    <authors>Aybars Arslan</authors>
+    <owners>Aybars Arslan</owners>
+    <projectUrl>https://github.com/arslanaybars/Fop</projectUrl>
+    <repository type="git" url="https://github.com/arslanaybars/Fop" />
+    <description>Filtering, Ordering (Sorting) and Pagination library for .Net Core, ASP.NET Core, C#</description>
+    <copyright>Aybars Arslan</copyright>
+    <tags>Filter, Sort, Order, Page, Filtering, Sorting, Ordering, Paging, .NET Core, ASP.NET Core, C#</tags>
+
+    <dependencies>
+      <dependency id="DynamicExpresso.Core" version="2.3.1" />
+      <dependency id="System.Linq.Dynamic.Core" version="1.0.19" />
+    </dependencies>
+  </metadata>
+</package>

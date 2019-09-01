@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+
+    <Authors>Aybars Arslan</Authors>
+    <Company>AybSoft</Company>
+    <Description>Sample API For Fop | Filtering, Ordering (Sorting) and Pagination library for .Net Core, ASP.NET Core, C#</Description>
+    <Copyright>Aybars Arslan</Copyright>
+    <PackageTags>Sample API Filter, Sort, Order, Page, Filtering, Sorting, Ordering, Paging, .NET Core, ASP.NET Core, C#</PackageTags>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sample.Data\Sample.Data.csproj" />
+    <ProjectReference Include="..\Sample.Service\Sample.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

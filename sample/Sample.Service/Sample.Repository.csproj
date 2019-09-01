@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <Authors>Aybars Arslan</Authors>
+    <Company>AybSoft</Company>
+    <Copyright>Aybars Arslan</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sample.Data\Sample.Data.csproj" />
+    <ProjectReference Include="..\Sample.Entity\Sample.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

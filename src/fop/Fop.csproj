@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <Authors>Aybars Arslan</Authors>
+    <Company>AybSoft</Company>
+    <Description>Filtering, Ordering (Sorting) and Pagination library for .Net Core, ASP.NET Core, C#</Description>
+    <Copyright>Aybars Arslan</Copyright>
+    <PackageTags>Filter, Sort, Order, Page, Filtering, Sorting, Ordering, Paging, .NET Core, ASP.NET Core, C#</PackageTags>
+    <PackageProjectUrl>https://github.com/arslanaybars/Fop</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/arslanaybars/Fop</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamicExpresso.Core" Version="2.3.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.19" />
+  </ItemGroup>
+
+</Project>
