@@ -55,8 +55,8 @@ Fop uses these query sign for preparing expression.
 |NotContains        |`!~=`       | ❌ | ✔️    | ❌  | ❌     | 
 |StartsWith         |`_=`        | ❌ | ✔️    | ❌  | ❌     |
 |NotStartsWith      |`!_=`       | ❌ | ✔️    | ❌  | ❌     |
-|EndsWith           |`|=`        | ❌ | ✔️    | ❌  | ❌     |
-|NotEndsWith        |`!|=`       | ❌ | ✔️    | ❌  | ❌     |
+|EndsWith           |`\|=`       | ❌ | ✔️    | ❌  | ❌     |
+|NotEndsWith        |`!\|=`      | ❌ | ✔️    | ❌  | ❌     |
 
 ##### Example
 api/students/
