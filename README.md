@@ -3,7 +3,7 @@
 
 For .Net Core developers, **Fop** serves you quite simple, easy to integrate and extensible Filtering, Ordering (Sorting) and Paging functionality.
 
-[![Fop Nuget](https://img.shields.io/nuget/v/Fop.svg?style=flat)](https://www.nuget.org/packages/Fop)
+[![Fop Nuget](https://img.shields.io/nuget/v/Fop)](https://www.nuget.org/packages/Fop)
 
 #### Quick Start
 Let's see how easy to use **Fop**
@@ -60,9 +60,13 @@ Fop uses these query sign for preparing expression.
 
 ##### Example
 api/students/
+
 ?Filter=Midterm>10;and 
+
 &Order=Midterm;desc
+
 &PageNumber=1
+
 &PageSize=2`
 
 The above expression returns us students whose midterms is more than 10, then order by Midterm descnding with page number is 1 and page size is 2.
@@ -71,17 +75,17 @@ It works! 🚀
 For more about query language click here!
 
 ### Examples
-<img src="https://raw.githubusercontent.com/arslanaybars/AybCommerce-B2B/master/media/Filter.png" width="800" height="450"/>
+<img src="https://github.com/arslanaybars/Fop/blob/master/media/Filter.png" width="800" height="450"/>
 
 It works! Percfect!
 
-<img src="https://raw.githubusercontent.com/arslanaybars/AybCommerce-B2B/master/media/Multiple_FIlter_With_Page_Result.png" width="800" height="450"/>
+<img src="https://github.com/arslanaybars/Fop/blob/master/media/Multiple_FIlter_With_Page_Result.png" width="800" height="450"/>
 
 Works for multiple filter logic as well! 🎉
 
 I don't want to make readme page so crowdy. please visit the wiki page to see more feature of the package
 
-### Need For Next
+### Next Things..
 - LOGO
 - Better unit tests
 - Improved sample
