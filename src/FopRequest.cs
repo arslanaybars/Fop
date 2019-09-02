@@ -10,10 +10,10 @@ namespace Fop
 
         public string OrderBy { get; set; }
 
-        public OrderDirection Direction { get; set; } = OrderDirection.Asc;
+        public OrderDirection Direction { get; set; }
 
-        public int PageNumber { get; set; } = 1;
+        public int PageNumber { get; set; } 
 
-        public int PageSize { get; set; } = 100;
+        public int PageSize { get; set; }
     }
 }
