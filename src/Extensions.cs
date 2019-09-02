@@ -24,7 +24,7 @@ namespace Fop
 
         public static (IQueryable<T>, int) ApplyFop<T>(this IQueryable<T> source, IFopRequest request)
         {
-            int totalRowsAfterFiltering = 0;
+            int totalRowsAfterFiltering = source.Count();
 
             // Filter
             if (request.FilterList.Any())
