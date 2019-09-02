@@ -5,6 +5,8 @@ For .Net Core developers, **Fop** serves you quite simple, easy to integrate and
 
 [![Fop Nuget](https://img.shields.io/nuget/v/Fop)](https://www.nuget.org/packages/Fop)
 
+To see detailed documenttation please visit [wiki page](https://github.com/arslanaybars/Fop/wiki)
+
 #### Quick Start
 Let's see how easy to use **Fop**
 
@@ -75,15 +77,15 @@ It works! 🚀
 For more about query language click here!
 
 ### Examples
-<img src="https://github.com/arslanaybars/Fop/blob/master/media/Filter.png" width="800" height="450"/>
+<img src="https://user-images.githubusercontent.com/3358953/64111010-48ae2a80-cd8c-11e9-8398-c6e811bec5e7.png" width="800" height="450"/>
 
 It works! Percfect!
 
-<img src="https://github.com/arslanaybars/Fop/blob/master/media/Multiple_FIlter_With_Page_Result.png" width="800" height="450"/>
+<img src="https://user-images.githubusercontent.com/3358953/64111026-519efc00-cd8c-11e9-9d5d-4b86485afd6f.png" width="800" height="450"/>
 
 Works for multiple filter logic as well! 🎉
 
-I don't want to make readme page so crowdy. please visit the wiki page to see more feature of the package
+I don't want to make readme page so crowdy. please visit the [wiki page](https://github.com/arslanaybars/Fop/wiki) to see more feature of the package
 
 ### Next Things..
 - LOGO
