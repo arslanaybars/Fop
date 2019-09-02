@@ -58,18 +58,16 @@ namespace Fop.FopExpression
                 var filterLogicParts = multipleLogicPart.Split(';');
 
                 var logicOperator = filterLogicParts[filterLogicParts.Length - 1];
-                if (logicOperator != "and" && logicOperator != "or")
-                {
-                    throw new LogicOperatorNotFoundException($"You have to pass your logic operator [and, or] but you passed {logicOperator}");
-                }
+                var (filterLogicPartLength, logicOperatorEnum) = FilterLogicPartLength(logicOperator, filterLogicParts);
+
 
                 filterList[i] = new FilterList
                 {
-                    Filters = new Filter.Filter[filterLogicParts.Length - 1],
-                    Logic = filterLogicParts[filterLogicParts.Length - 1] == "or" ? FilterLogic.Or : FilterLogic.And
+                    Filters = new Filter.Filter[filterLogicPartLength],
+                    Logic = logicOperatorEnum
                 };
 
-                for (var j = 0; j < filterLogicParts.Length - 1; j++)
+                for (var j = 0; j < filterLogicPartLength; j++)
                 {
                     var filterLogicPart = filterLogicParts[j];
 
@@ -95,6 +93,23 @@ namespace Fop.FopExpression
             }
 
             return filterList;
+        }
+
+        private static (int, FilterLogic) FilterLogicPartLength(string logicOperator, string[] filterLogicParts)
+        {
+            var filterLogicPartLength = logicOperator != "and" && logicOperator != "or"
+                ? filterLogicParts.Length
+                : filterLogicParts.Length - 1;
+
+            var logicOperatorEnum = logicOperator != "and" && logicOperator != "or"
+                ? FilterLogic.And
+                : logicOperator == "and" 
+                    ? FilterLogic.And 
+                    : logicOperator == "or" 
+                        ? FilterLogic.Or 
+                        : throw new LogicOperatorNotFoundException($"{logicOperator} is not found");
+
+            return (filterLogicPartLength, logicOperatorEnum);
         }
 
         #region [ Helpers ]

@@ -42,7 +42,7 @@ namespace Fop.Tests
         public void FopExpressionBuilder_Should_Build_FopRequest_With_Multiple_FilterList()
         {
             // Arrange
-            var filterQueryString = "Midterm>10;Name_=A;and$IdentityNumber==100101;IdentityNumber==100001;or";
+            var filterQueryString = "Midterm>10;Name_=A$IdentityNumber==100101;IdentityNumber==100001;or";
             var orderQueryString = "Midterm;desc";
             var pageNumber = 1;
             var pageSize = 50;

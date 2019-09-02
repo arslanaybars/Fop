@@ -9,16 +9,16 @@ namespace Fop.Utils
         {
             {"==", FilterOperators.Equal},
             {"!=", FilterOperators.NotEqual},
-            {">", FilterOperators.GreaterThan},
             {">=", FilterOperators.GreaterOrEqualThan},
-            {"<", FilterOperators.LessThan},
+            { ">", FilterOperators.GreaterThan},
             {"<=", FilterOperators.LessOrEqualThan},
-            {"~=", FilterOperators.Contains},
+            { "<", FilterOperators.LessThan},
             {"!~=", FilterOperators.NotContains},
-            {"_=", FilterOperators.StartsWith},
+            {"~=", FilterOperators.Contains},
             {"!_=", FilterOperators.NotStartsWith},
-            {"|=", FilterOperators.EndsWith},
-            {"!|=", FilterOperators.NotEndsWith}
+            {"_=", FilterOperators.StartsWith},
+            {"!|=", FilterOperators.NotEndsWith},
+            {"|=", FilterOperators.EndsWith}
         };
     }
 }

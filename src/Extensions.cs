@@ -39,7 +39,7 @@ namespace Fop
 
                     if (i < request.FilterList.Count() - 1)
                     {
-                        whereExpression += ConvertLogicSyntax(FilterLogic.And);
+                        whereExpression += ConvertLogicSyntax(FilterLogic.Or);
                     }
                 }
 
