@@ -118,22 +118,27 @@ namespace Fop.FopExpression
 
         private static FilterDataTypes GetFilterDataTypes(PropertyInfo pi)
         {
-            if (pi.PropertyType.Name == "Int32")
+            var propertyName = pi.PropertyType.IsGenericType &&
+                               pi.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>)
+                ? pi.PropertyType.GetGenericArguments()[0].Name
+                : pi.PropertyType.Name;
+
+            if (propertyName == "Int32")
             {
                 return FilterDataTypes.Int;
             }
 
-            if (pi.PropertyType.Name == "String")
+            if (propertyName == "String")
             {
                 return FilterDataTypes.String;
             }
 
-            if (pi.PropertyType.Name == "Char")
+            if (propertyName == "Char")
             {
                 return FilterDataTypes.Char;
             }
 
-            if (pi.PropertyType.Name == "DateTime")
+            if (propertyName == "DateTime")
             {
                 return FilterDataTypes.DateTime;
             }
