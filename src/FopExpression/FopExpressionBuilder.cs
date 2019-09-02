@@ -49,6 +49,8 @@ namespace Fop.FopExpression
         private static IEnumerable<IFilterList> FilterExpressionBuilder(string filter)
         {
             filter = filter.ToLower();
+            var genericProperties = typeof(T).GetProperties();
+            var genericTypeName = typeof(T).Name;
             var multipleLogicParts = filter.Split('$');
             var filterList = new IFilterList[multipleLogicParts.Length];
 
@@ -81,12 +83,12 @@ namespace Fop.FopExpression
 
                     var filterObject = filterLogicPart.Split(key);
 
-                    var property = typeof(T).GetProperties().FirstOrDefault(x => x.Name.ToLower() == filterObject[0]);
+                    var property = genericProperties.FirstOrDefault(x => x.Name.ToLower() == filterObject[0]);
                     ((Filter.Filter[])filterList[i].Filters)[j] = new Filter.Filter
                     {
                         Operator = value,
                         DataType = GetFilterDataTypes(property),
-                        Key = typeof(T).Name + "." + property.Name,
+                        Key = genericTypeName + "." + property.Name,
                         Value = filterObject[1]
                     };
                 }

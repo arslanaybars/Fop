@@ -10,11 +10,22 @@
     <PackageTags>Filter, Sort, Order, Page, Filtering, Sorting, Ordering, Paging, .NET Core, ASP.NET Core, C#</PackageTags>
     <PackageProjectUrl>https://github.com/arslanaybars/Fop</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arslanaybars/Fop</RepositoryUrl>
+    <Version>1.0.1</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryType>Git</RepositoryType>
+    <PackageReleaseNotes>Multiple filter expression bug clean</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DynamicExpresso.Core" Version="2.3.1" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
