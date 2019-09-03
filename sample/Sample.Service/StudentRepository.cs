@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Fop;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace Sample.Repository
 
         public async Task<(List<Student>, int)> RetrieveStudents(IFopRequest request)
         {
-            var (filteredStudents, totalCount) = _context.Students.ApplyFop(request);
+            var (filteredStudents, totalCount) = _context.Students.Include(x => x.Department).ApplyFop(request);
             return (await filteredStudents.ToListAsync(), totalCount);
         }
     }

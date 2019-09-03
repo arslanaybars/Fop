@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Internal;
 using Sample.Entity;
 
 namespace Sample.Data
@@ -12,6 +13,28 @@ namespace Sample.Data
 
         public static async Task SeedAsync(AppDbContext context)
         {
+            if (!context.Departments.Any())
+            {
+                var departments = new List<Department>
+                {
+                    new Department
+                    {
+                        Name = "Software Engineering"
+                    },
+                    new Department
+                    {
+                        Name = "Architecture"
+                    },
+                    new Department
+                    {
+                        Name = "Zoology"
+                    }
+                };
+
+                context.Departments.AddRange(departments);
+                await context.SaveChangesAsync();
+            }
+
             if (!context.Students.Any())
             {
                 var students = new List<Student>();
@@ -19,7 +42,6 @@ namespace Sample.Data
                 var removeMonths = 0;
                 for (var i = 0; i < 100; i++)
                 {
-
                     students.Add(new Student
                     {
                         Name = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 8),
@@ -28,7 +50,8 @@ namespace Sample.Data
                         Final= new Random().Next(0, 100),
                         Birthday = DateTime.Now.AddMonths(--removeMonths),
                         IdentityNumber = (++identityNumber).ToString(),
-                        Level = chars.ToCharArray()[new Random().Next(0, 6)]
+                        Level = chars.ToCharArray()[new Random().Next(0, 6)],
+                        DepartmentId = new Random().Next(1, 4)
                     });
                 }
 
