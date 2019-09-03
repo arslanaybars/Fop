@@ -43,7 +43,7 @@ namespace Fop
                     }
                 }
 
-                var interpreter = new Interpreter();
+                var interpreter = new Interpreter().EnableAssignment(AssignmentOperators.None);
                 var expression = interpreter.ParseAsExpression<Func<T, bool>>(whereExpression, typeof(T).Name);
                 source = source.Where(expression);
 
