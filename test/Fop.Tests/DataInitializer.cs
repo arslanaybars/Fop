@@ -9,11 +9,31 @@ namespace Fop.Tests
     {
         public static IQueryable<Student> GenerateStudentList()
         {
+            var departments = new List<Department>
+            {
+                new Department
+                {
+                    Id = 1,
+                    Name = "Software Engineering"
+                },
+                new Department
+                {
+                    Id = 2,
+                    Name = "Architecture"
+                },
+                new Department
+                {
+                    Id = 3,
+                    Name = "Zoology"
+                }
+            };
+
             var studentList = new List<Student>();
             var identityNumber = 100000;
             var removeMonths = 0;
             for (var i = 0; i < 100; i++)
             {
+                int departmentId = new Random().Next(1, 3);
                 studentList.Add(new Student
                 {
                     Name = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 8),
@@ -22,7 +42,8 @@ namespace Fop.Tests
                     Final = new Random().Next(0, 100),
                     Birthday = DateTime.Now.AddMonths(--removeMonths),
                     IdentityNumber = (++identityNumber).ToString(),
-                    Level = Convert.ToChar(Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 1))
+                    Level = Convert.ToChar(Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 1)),
+                    Department = departments.FirstOrDefault(x => x.Id == departmentId)
                 });
             }
 
@@ -34,7 +55,8 @@ namespace Fop.Tests
                 Final = 90,
                 Birthday = new DateTime(1995, 04, 06),
                 IdentityNumber = (++identityNumber).ToString(),
-                Level = 'a'
+                Level = 'a',
+                DepartmentId = 1
             });
 
             return studentList.AsQueryable();

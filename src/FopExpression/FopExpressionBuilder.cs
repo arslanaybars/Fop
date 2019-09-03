@@ -49,8 +49,8 @@ namespace Fop.FopExpression
         private static IEnumerable<IFilterList> FilterExpressionBuilder(string filter)
         {
             filter = filter.ToLower();
-            var genericProperties = typeof(T).GetProperties();
-            var genericTypeName = typeof(T).Name;
+            var genericType = typeof(T);
+            var genericTypeName = genericType.Name;
             var multipleLogicParts = filter.Split('$');
             var filterList = new IFilterList[multipleLogicParts.Length];
 
@@ -83,18 +83,44 @@ namespace Fop.FopExpression
 
                     var filterObject = filterLogicPart.Split(key);
 
-                    var property = genericProperties.FirstOrDefault(x => x.Name.ToLower() == filterObject[0]);
+                    // var property = genericProperties.FirstOrDefault(x => x.Name.ToLower() == filterObject[0]);
+                    var propertyInfos = new List<PropertyInfo>();
+                    var property = GetPropertyValue(genericType, filterObject[0], propertyInfos);
                     ((Filter.Filter[])filterList[i].Filters)[j] = new Filter.Filter
                     {
                         Operator = value,
-                        DataType = GetFilterDataTypes(property),
-                        Key = genericTypeName + "." + property.Name,
+                        DataType = GetFilterDataTypes(property.LastOrDefault()),
+                        Key = genericTypeName + "." + property.Select(x => x.Name).Aggregate((a, b) => a + "." + b),
                         Value = filterObject[1]
                     };
                 }
             }
 
             return filterList;
+        }
+
+        public static List<PropertyInfo> GetPropertyValue(Type baseType, string propertyName, List<PropertyInfo> propertyInfos)
+        {
+            var parts = propertyName.Split('.');
+
+            if (parts.Length > 1)
+            {
+
+                var propertyInfo = baseType.GetProperty(parts[0],
+                    BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+                var propName = parts.Skip(1).Aggregate((a, i) => a + "." + i);
+                propertyInfos.Add(propertyInfo);
+                return GetPropertyValue(propertyInfo?.PropertyType, propName, propertyInfos);
+
+                //return GetPropertyValue(baseType.GetProperty(parts[0],
+                //        BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance)?.PropertyType,
+                //     parts.Skip(1).Aggregate((a, i) => a + "." + i));
+            }
+
+            propertyInfos.Add(baseType.GetProperty(propertyName,
+                BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance));
+
+            return propertyInfos;
         }
 
         private static (int, FilterLogic) FilterLogicPartLength(string logicOperator, string[] filterLogicParts)
@@ -105,10 +131,10 @@ namespace Fop.FopExpression
 
             var logicOperatorEnum = logicOperator != "and" && logicOperator != "or"
                 ? FilterLogic.And
-                : logicOperator == "and" 
-                    ? FilterLogic.And 
-                    : logicOperator == "or" 
-                        ? FilterLogic.Or 
+                : logicOperator == "and"
+                    ? FilterLogic.And
+                    : logicOperator == "or"
+                        ? FilterLogic.Or
                         : throw new LogicOperatorNotFoundException($"{logicOperator} is not found");
 
             return (filterLogicPartLength, logicOperatorEnum);

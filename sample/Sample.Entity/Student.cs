@@ -10,6 +10,8 @@ namespace Sample.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        public int DepartmentId { get; set; }
+
         public string Name { get; set; }
 
         public string Surname { get; set; }
@@ -24,5 +26,7 @@ namespace Sample.Entity
 
         public char Level { get; set; }
 
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
     }
 }
