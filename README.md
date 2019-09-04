@@ -5,7 +5,7 @@ For .Net Core developers, **Fop** serves you quite simple, easy to integrate and
 
 [![Fop Nuget](https://img.shields.io/nuget/v/Fop)](https://www.nuget.org/packages/Fop)
 
-To see detailed documenttation please visit [wiki page](https://github.com/arslanaybars/Fop/wiki)
+To see detailed documentation please visit [wiki page](https://github.com/arslanaybars/Fop/wiki)
 
 #### Quick Start
 Let's see how easy to use **Fop**
@@ -71,7 +71,7 @@ api/students/
 
 &PageSize=2`
 
-The above expression returns us students whose midterms is more than 10, then order by Midterm descnding with page number is 1 and page size is 2.
+The above expression returns us students whose midterms is more than 10, then order by Midterm descending with page number is 1 and page size is 2.
 
 It works! 🚀
 For more about query language click here!
@@ -79,7 +79,7 @@ For more about query language click here!
 ### Examples
 <img src="https://user-images.githubusercontent.com/3358953/64111010-48ae2a80-cd8c-11e9-8398-c6e811bec5e7.png" width="800" height="450"/>
 
-It works! Percfect!
+It works! Perfect!
 
 <img src="https://user-images.githubusercontent.com/3358953/64111026-519efc00-cd8c-11e9-9d5d-4b86485afd6f.png" width="800" height="450"/>
 
