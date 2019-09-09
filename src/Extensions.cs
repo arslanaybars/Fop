@@ -27,7 +27,7 @@ namespace Fop
             int totalRowsAfterFiltering = source.Count();
 
             // Filter
-            if (request.FilterList.Any())
+            if (request.FilterList != null && request.FilterList.Any())
             {
                 var whereExpression = string.Empty;
 
