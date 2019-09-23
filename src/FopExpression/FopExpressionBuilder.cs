@@ -149,7 +149,9 @@ namespace Fop.FopExpression
                 ? pi.PropertyType.GetGenericArguments()[0].Name
                 : pi.PropertyType.Name;
 
-            if (propertyName == "Int32")
+            if (propertyName == "Int32" ||
+                propertyName == "UInt16" || 
+                propertyName == "Int16")
             {
                 return FilterDataTypes.Int;
             }
