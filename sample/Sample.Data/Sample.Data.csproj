@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <Authors>Aybars Arslan</Authors>
     <Company>AybSoft</Company>
     <Copyright>Aybars Arslan</Copyright>
   </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
