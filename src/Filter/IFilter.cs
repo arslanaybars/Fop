@@ -9,5 +9,9 @@
         string Key { get; set; }
 
         string Value { get; set; }
+
+        string Assembly { get; set; }
+
+        string Fullname { get; set; }
     }
 }

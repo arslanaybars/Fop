@@ -20,6 +20,8 @@ namespace Fop
             DataTypeStrategies.Add(FilterDataTypes.String, new StringDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.Char, new CharDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.DateTime, new DateTimeDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Boolean, new BooleanDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Enum, new EnumDataTypeStrategy());
         }
 
         public static (IQueryable<T>, int) ApplyFop<T>(this IQueryable<T> source, IFopRequest request)
@@ -30,12 +32,13 @@ namespace Fop
             if (request.FilterList != null && request.FilterList.Any())
             {
                 var whereExpression = string.Empty;
+                var enumTypes = new List<KeyValuePair<string,string>>();
 
                 for (var i = 0; i < request.FilterList.Count(); i++)
                 {
                     var filterList = request.FilterList.ToArray()[i];
 
-                    whereExpression += GenerateDynamicWhereExpression(source, filterList);
+                    (whereExpression, enumTypes) = GenerateDynamicWhereExpression(source, filterList);
 
                     if (i < request.FilterList.Count() - 1)
                     {
@@ -44,6 +47,11 @@ namespace Fop
                 }
 
                 var interpreter = new Interpreter().EnableAssignment(AssignmentOperators.None);
+                foreach (var enumType in enumTypes)
+                {
+                    var t = Type.GetType($"{enumType.Key}, {enumType.Value}");
+                    interpreter.Reference(t);
+                }
                 var expression = interpreter.ParseAsExpression<Func<T, bool>>(whereExpression, typeof(T).Name);
                 source = source.Where(expression);
 
@@ -67,13 +75,20 @@ namespace Fop
 
         #region Helpers
 
-        private static string GenerateDynamicWhereExpression<T>(IQueryable<T> source, IFilterList filterList)
+        private static (string, List<KeyValuePair<string, string>>) GenerateDynamicWhereExpression<T>(IQueryable<T> source, IFilterList filterList)
         {
             var dynamicExpressoBuilder = new StringBuilder();
+            var kvp = new List<KeyValuePair<string,string>>();
 
             for (var i = 0; i < filterList.Filters.Count(); i++)
             {
                 var filter = filterList.Filters.ToArray()[i];
+
+                if (filter.DataType == FilterDataTypes.Enum)
+                {
+                    kvp.Add(new KeyValuePair<string, string>(filter.Fullname, filter.Assembly));
+                }
+
                 dynamicExpressoBuilder.Append(ConvertFilterToText(filter));
 
                 if (i < filterList.Filters.Count() - 1)
@@ -82,7 +97,7 @@ namespace Fop
                 }
             }
 
-            return "(" + dynamicExpressoBuilder + ")";
+            return ("(" + dynamicExpressoBuilder + ")", kvp);
         }
 
         private static string ConvertLogicSyntax(FilterLogic filterListLogic)

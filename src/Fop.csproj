@@ -10,7 +10,7 @@
     <PackageTags>Filter, Sort, Order, Page, Filtering, Sorting, Ordering, Paging, .NET Core, ASP.NET Core, C#</PackageTags>
     <PackageProjectUrl>https://github.com/arslanaybars/Fop</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arslanaybars/Fop</RepositoryUrl>
-    <Version>1.0.1.5</Version>
+    <Version>1.0.1.6</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Multiple filter expression bug clean</PackageReleaseNotes>

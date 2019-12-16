@@ -27,6 +27,8 @@
         String,
         Int,
         Char,
-        DateTime
+        DateTime,
+        Boolean,
+        Enum
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using Fop.Exceptions;
 using Fop.Filter;
@@ -48,7 +49,7 @@ namespace Fop.FopExpression
 
         private static IEnumerable<IFilterList> FilterExpressionBuilder(string filter)
         {
-            filter = filter.ToLower();
+            //filter = filter.ToLower();
             var genericType = typeof(T);
             var genericTypeName = genericType.Name;
             var multipleLogicParts = filter.Split('$');
@@ -86,12 +87,15 @@ namespace Fop.FopExpression
                     // var property = genericProperties.FirstOrDefault(x => x.Name.ToLower() == filterObject[0]);
                     var propertyInfos = new List<PropertyInfo>();
                     var property = GetPropertyValue(genericType, filterObject[0], propertyInfos);
+                    var lastProperty = property.LastOrDefault();
                     ((Filter.Filter[])filterList[i].Filters)[j] = new Filter.Filter
                     {
                         Operator = value,
-                        DataType = GetFilterDataTypes(property.LastOrDefault()),
+                        DataType = GetFilterDataTypes(lastProperty),
                         Key = genericTypeName + "." + property.Select(x => x.Name).Aggregate((a, b) => a + "." + b),
-                        Value = filterObject[1]
+                        Value = filterObject[1],
+                        Assembly = lastProperty?.Module.Name.Replace(".dll", string.Empty),
+                        Fullname = lastProperty?.PropertyType.FullName
                     };
                 }
             }
@@ -149,8 +153,13 @@ namespace Fop.FopExpression
                 ? pi.PropertyType.GetGenericArguments()[0].Name
                 : pi.PropertyType.Name;
 
+            if (pi.PropertyType.IsEnum)
+            {
+                return FilterDataTypes.Enum;
+            }
+
             if (propertyName == "Int32" ||
-                propertyName == "UInt16" || 
+                propertyName == "UInt16" ||
                 propertyName == "Int16")
             {
                 return FilterDataTypes.Int;
@@ -169,6 +178,11 @@ namespace Fop.FopExpression
             if (propertyName == "DateTime")
             {
                 return FilterDataTypes.DateTime;
+            }
+
+            if (propertyName == "Boolean")
+            {
+                return FilterDataTypes.Boolean;
             }
 
             throw new ArgumentOutOfRangeException();

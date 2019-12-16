@@ -3,6 +3,5 @@
     public class CharDataTypeNotSupportedException : FopException
     {
         public CharDataTypeNotSupportedException(string message) : base(message) { }
-
     }
 }
