@@ -33,8 +33,8 @@ namespace Fop.Tests
             var removeMonths = 0;
             for (var i = 0; i < 100; i++)
             {
-                int departmentId = new Random().Next(1, 3);
-                studentList.Add(new Student
+                var departmentId = new Random().Next(1, 3);
+                var student = new Student
                 {
                     Name = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 8),
                     Surname = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 8),
@@ -43,8 +43,12 @@ namespace Fop.Tests
                     Birthday = DateTime.Now.AddMonths(--removeMonths),
                     IdentityNumber = (++identityNumber).ToString(),
                     Level = Convert.ToChar(Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 1)),
-                    Department = departments.FirstOrDefault(x => x.Id == departmentId)
-                });
+                    Department = departments.FirstOrDefault(x => x.Id == departmentId),
+                    Bonus= Convert.ToDecimal(new Random().Next(0, 100)),
+                };
+
+                student.Average = student.Final + student.Midterm / 100;
+                studentList.Add(student);
             }
 
             studentList.Add(new Student
@@ -56,7 +60,9 @@ namespace Fop.Tests
                 Birthday = new DateTime(1995, 04, 06),
                 IdentityNumber = (++identityNumber).ToString(),
                 Level = 'a',
-                DepartmentId = 1
+                DepartmentId = 1,
+                Average = 55.6d,
+                Bonus = 85.5m
             });
 
             return studentList.AsQueryable();

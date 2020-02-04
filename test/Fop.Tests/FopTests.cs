@@ -42,7 +42,7 @@ namespace Fop.Tests
                                 Operator = FilterOperators.StartsWith,
                                 DataType = FilterDataTypes.String,
                                 Key = nameof(Student) + "." + nameof(Student.Name),
-                                Value = "A"
+                                Value = "Ayb"
                             }
                         }
                     }
@@ -62,6 +62,57 @@ namespace Fop.Tests
 
             // Assert
             Assert.True(result.Any(x => x.Name == "Aybars"));
+        }
+
+        [Fact]
+        public void ApplyFop_Should_Success_Returns_Filtered_When_Passed_Multiple_Filter_With_Decimal_Double_Types()
+        {
+            // Arrange
+            var request = new FopRequest
+            {
+                // Filter
+                FilterList = new IFilterList[]
+                {
+                    new FilterList
+                    {
+                        Logic = FilterLogic.And,
+                        Filters = new []
+                        {
+                            new Filter.Filter
+                            {
+                                Operator = FilterOperators.GreaterThan,
+                                DataType = FilterDataTypes.Decimal,
+                                Key = nameof(Student) + "." + nameof(Student.Bonus),
+                                Value = "50.5m"
+                            },
+                            new Filter.Filter
+                            {
+                                Operator = FilterOperators.LessOrEqualThan,
+                                DataType = FilterDataTypes.Double,
+                                Key = nameof(Student) + "." + nameof(Student.Average),
+                                Value = "75.5"
+                            }
+                        }
+                    }
+                },
+
+                // Order
+                Direction = OrderDirection.Desc,
+                OrderBy = nameof(Student.IdentityNumber),
+
+                // Page
+                PageSize = 100,
+                PageNumber = 1
+            };
+
+            var expectedCount = _students.Count(x => x.Bonus > 50.5m && x.Average <= 75.5);
+
+            // Act
+            var (result, totalRecords) = _students.ApplyFop(request);
+
+            // Assert
+            Assert.True(result.Any(x => x.Name == "Aybars"));
+            Assert.True(expectedCount == result.Count());
         }
 
         [Fact]
@@ -328,7 +379,6 @@ namespace Fop.Tests
             // Assert
             Assert.True(ex is StringDataTypeNotSupportedException);
         }
-
 
         [Fact]
         public void ApplyFop_Should_Fail_Returns_LogicOperatorNotFoundException()

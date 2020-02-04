@@ -17,6 +17,10 @@ namespace Fop
         static Extensions()
         {
             DataTypeStrategies.Add(FilterDataTypes.Int, new IntDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Float, new FloatDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Double, new DoubleDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Long, new LongDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Decimal, new DecimalDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.String, new StringDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.Char, new CharDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.DateTime, new DateTimeDataTypeStrategy());
@@ -119,7 +123,5 @@ namespace Fop
         }
 
         #endregion
-
-
     }
 }

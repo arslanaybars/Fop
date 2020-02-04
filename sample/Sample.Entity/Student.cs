@@ -22,6 +22,10 @@ namespace Sample.Entity
 
         public int Final { get; set; }
 
+        public double Average { get; set; }
+
+        public decimal Bonus { get; set; }
+
         public DateTime Birthday { get; set; }
 
         public char Level { get; set; }

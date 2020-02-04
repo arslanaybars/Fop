@@ -26,6 +26,10 @@
     {
         String,
         Int,
+        Float,
+        Double,
+        Long,
+        Decimal,
         Char,
         DateTime,
         Boolean,
