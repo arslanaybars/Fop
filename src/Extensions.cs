@@ -36,13 +36,15 @@ namespace Fop
             if (request.FilterList != null && request.FilterList.Any())
             {
                 var whereExpression = string.Empty;
-                var enumTypes = new List<KeyValuePair<string,string>>();
+                var enumTypes = new List<KeyValuePair<string, string>>();
 
                 for (var i = 0; i < request.FilterList.Count(); i++)
                 {
                     var filterList = request.FilterList.ToArray()[i];
 
-                    (whereExpression, enumTypes) = GenerateDynamicWhereExpression(source, filterList);
+                    (string generatedWhereExpression, List<KeyValuePair<string, string>> generatedEnumTypes) = GenerateDynamicWhereExpression(source, filterList);
+                    whereExpression += generatedWhereExpression;
+                    enumTypes.AddRange(generatedEnumTypes);
 
                     if (i < request.FilterList.Count() - 1)
                     {
@@ -82,10 +84,11 @@ namespace Fop
         private static (string, List<KeyValuePair<string, string>>) GenerateDynamicWhereExpression<T>(IQueryable<T> source, IFilterList filterList)
         {
             var dynamicExpressoBuilder = new StringBuilder();
-            var kvp = new List<KeyValuePair<string,string>>();
+            var kvp = new List<KeyValuePair<string, string>>();
 
             for (var i = 0; i < filterList.Filters.Count(); i++)
             {
+                var aa = dynamicExpressoBuilder.ToString();
                 var filter = filterList.Filters.ToArray()[i];
 
                 if (filter.DataType == FilterDataTypes.Enum)
@@ -94,13 +97,15 @@ namespace Fop
                 }
 
                 dynamicExpressoBuilder.Append(ConvertFilterToText(filter));
-
+                var bb = dynamicExpressoBuilder.ToString();
                 if (i < filterList.Filters.Count() - 1)
                 {
                     dynamicExpressoBuilder.Append(ConvertLogicSyntax(filterList.Logic));
+                    var cc = dynamicExpressoBuilder.ToString();
                 }
             }
 
+            var dd = "(" + dynamicExpressoBuilder + ")";
             return ("(" + dynamicExpressoBuilder + ")", kvp);
         }
 
