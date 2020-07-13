@@ -24,7 +24,7 @@ namespace Fop.Strategies
                 case FilterOperators.LessThan:
                 case FilterOperators.LessOrEqualThan:
                 default:
-                    throw new StringDataTypeNotSupportedException($"String filter does not support {filter.Operator}");
+                    throw new StringDataTypeNotSupportedException($"Guid filter does not support {filter.Operator}");
             }
         }
     }
