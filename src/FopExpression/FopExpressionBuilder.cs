@@ -42,7 +42,11 @@ namespace Fop.FopExpression
 
             var orderParts = order.Split(';');
 
-            var direction = orderParts[1] == "desc" ? OrderDirection.Desc : OrderDirection.Asc;
+            var direction = orderParts.Length > 1 ?
+                orderParts[1] == "desc" 
+                    ? OrderDirection.Desc 
+                    : OrderDirection.Asc
+                : OrderDirection.Asc;
 
             return (orderParts[0], direction);
         }
