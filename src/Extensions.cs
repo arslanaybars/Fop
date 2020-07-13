@@ -26,6 +26,7 @@ namespace Fop
             DataTypeStrategies.Add(FilterDataTypes.DateTime, new DateTimeDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.Boolean, new BooleanDataTypeStrategy());
             DataTypeStrategies.Add(FilterDataTypes.Enum, new EnumDataTypeStrategy());
+            DataTypeStrategies.Add(FilterDataTypes.Guid, new GuidTypeStrategy());
         }
 
         public static (IQueryable<T>, int) ApplyFop<T>(this IQueryable<T> source, IFopRequest request)
