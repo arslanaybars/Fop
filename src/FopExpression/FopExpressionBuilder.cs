@@ -195,6 +195,11 @@ namespace Fop.FopExpression
                 return FilterDataTypes.Boolean;
             }
 
+            if (propertyName == "Guid")
+            {
+                return FilterDataTypes.Guid;
+            }
+
             throw new ArgumentOutOfRangeException();
         }
 

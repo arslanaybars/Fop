@@ -33,6 +33,7 @@
         Char,
         DateTime,
         Boolean,
-        Enum
+        Enum,
+        Guid
     }
 }
