@@ -169,6 +169,12 @@ namespace Fop.FopExpression
                 return FilterDataTypes.Int;
             }
 
+            if (propertyName == "Int64" ||
+                propertyName == "UInt64")
+            {
+                return FilterDataTypes.Long;
+            }
+
             if (propertyName == "String")
             {
                 return FilterDataTypes.String;

@@ -45,20 +45,20 @@ Supported operators for type are below;
 
 Fop uses these query sign for preparing expression. 
 
-|Operators          |Query Sign  |Int |String | Char |DateTime|
-|-------------------|------------|----|-------|------|--------|
-|Equal              |`==`        | ✔️ | ✔️    | ✔️  | ✔️     |
-|NotEqual           |`!=`        | ✔️ | ✔️    | ✔️  | ✔️     |
-|GreaterThan        |`>`         | ✔️ | ❌    | ❌  | ✔️     |
-|GreaterOrEqualThan |`>=`        | ✔️ | ❌    | ❌  | ✔️     |
-|LessThan           |`<`         | ✔️ | ❌    | ❌  | ✔️     |
-|LessOrEqualThan    |`<=`        | ✔️ | ❌    | ❌  | ✔️     |
-|Contains           |`~=`        | ❌ | ✔️    | ❌  | ❌     | 
-|NotContains        |`!~=`       | ❌ | ✔️    | ❌  | ❌     | 
-|StartsWith         |`_=`        | ❌ | ✔️    | ❌  | ❌     |
-|NotStartsWith      |`!_=`       | ❌ | ✔️    | ❌  | ❌     |
-|EndsWith           |`\|=`       | ❌ | ✔️    | ❌  | ❌     |
-|NotEndsWith        |`!\|=`      | ❌ | ✔️    | ❌  | ❌     |
+|Operators          |Query Sign  |Int/Long |String | Char |DateTime|
+|-------------------|------------|---------|-------|------|--------|
+|Equal              |`==`        | ✔️     | ✔️    | ✔️  | ✔️     |
+|NotEqual           |`!=`        | ✔️     | ✔️    | ✔️  | ✔️     |
+|GreaterThan        |`>`         | ✔️     | ❌    | ❌  | ✔️     |
+|GreaterOrEqualThan |`>=`        | ✔️     | ❌    | ❌  | ✔️     |
+|LessThan           |`<`         | ✔️     | ❌    | ❌  | ✔️     |
+|LessOrEqualThan    |`<=`        | ✔️     | ❌    | ❌  | ✔️     |
+|Contains           |`~=`        | ❌     | ✔️    | ❌  | ❌     | 
+|NotContains        |`!~=`       | ❌     | ✔️    | ❌  | ❌     | 
+|StartsWith         |`_=`        | ❌     | ✔️    | ❌  | ❌     |
+|NotStartsWith      |`!_=`       | ❌     | ✔️    | ❌  | ❌     |
+|EndsWith           |`\|=`       | ❌     | ✔️    | ❌  | ❌     |
+|NotEndsWith        |`!\|=`      | ❌     | ✔️    | ❌  | ❌     |
 
 ##### Example
 api/students/
