@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using Fop.Exceptions;
 using Fop.Filter;
@@ -174,7 +173,10 @@ namespace Fop.FopExpression
             {
                 return FilterDataTypes.Long;
             }
-
+            if (propertyName == "Decimal")
+            {
+              return FilterDataTypes.Decimal;
+            }
             if (propertyName == "String")
             {
                 return FilterDataTypes.String;
