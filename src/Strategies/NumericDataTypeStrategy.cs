@@ -3,7 +3,10 @@ using Fop.Filter;
 
 namespace Fop.Strategies
 {
-    public abstract class NumericDataTypeStrategy
+    /// <summary>
+    /// All numeric behave the same
+    /// </summary>
+    public abstract  class NumericDataTypeStrategy : IFilterDataTypeStrategy
     {
         public virtual string ConvertFilterToText(IFilter filter)
         {

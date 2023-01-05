@@ -1,5 +1,5 @@
 ﻿namespace Fop.Strategies
 {
-    public class LongDataTypeStrategy : NumericDataTypeStrategy, IFilterDataTypeStrategy
+    public class LongDataTypeStrategy : NumericDataTypeStrategy
     { }
 }

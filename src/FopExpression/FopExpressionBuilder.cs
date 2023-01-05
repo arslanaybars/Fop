@@ -173,7 +173,8 @@ namespace Fop.FopExpression
             {
                 return FilterDataTypes.Long;
             }
-            if (propertyName == "Decimal")
+            if (propertyName == "Decimal" ||
+                propertyName == "Double")
             {
               return FilterDataTypes.Decimal;
             }
