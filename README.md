@@ -45,7 +45,7 @@ Supported operators for type are below;
 
 Fop uses these query sign for preparing expression. 
 
-|Operators          |Query Sign  |Int/Long |String | Char |DateTime|Guid|
+|Operators          |Query Sign  |Int/Long/Decimal/Double |String | Char |DateTime|Guid|
 |-------------------|------------|----|-------|------|--------|----|
 |Equal              |`==`        | ✔️ | ✔️    | ✔️  | ✔️    | ✔️ |
 |NotEqual           |`!=`        | ✔️ | ✔️    | ✔️  | ✔️    | ✔️ |
