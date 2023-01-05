@@ -53,12 +53,12 @@ Fop uses these query sign for preparing expression.
 |GreaterOrEqualThan |`>=`        | ✔️ | ❌    | ❌  | ✔️    | ❌ |
 |LessThan           |`<`         | ✔️ | ❌    | ❌  | ✔️    | ❌ |
 |LessOrEqualThan    |`<=`        | ✔️ | ❌    | ❌  | ✔️    | ❌ |
-|Contains           |`~=`        | ❌ | ✔️    | ❌  | ❌    | ❌ |
-|NotContains        |`!~=`       | ❌ | ✔️    | ❌  | ❌    | ❌ |
-|StartsWith         |`_=`        | ❌ | ✔️    | ❌  | ❌    | ❌ |
-|NotStartsWith      |`!_=`       | ❌ | ✔️    | ❌  | ❌    | ❌ |
-|EndsWith           |`\|=`       | ❌ | ✔️    | ❌  | ❌    | ❌ |
-|NotEndsWith        |`!\|=`      | ❌ | ✔️    | ❌  | ❌    | ❌ |
+|Contains           |`~=`        | ✔️ | ✔️    | ❌  | ❌    | ❌ |
+|NotContains        |`!~=`       | ✔️ | ✔️    | ❌  | ❌    | ❌ |
+|StartsWith         |`_=`        | ✔️ | ✔️    | ❌  | ❌    | ❌ |
+|NotStartsWith      |`!_=`       | ✔️ | ✔️    | ❌  | ❌    | ❌ |
+|EndsWith           |`\|=`       | ✔️ | ✔️    | ❌  | ❌    | ❌ |
+|NotEndsWith        |`!\|=`      | ✔️ | ✔️    | ❌  | ❌    | ❌ |
 
 ##### Example
 api/students/
