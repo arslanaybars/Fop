@@ -14,7 +14,7 @@ jobs:
 
     env:
       Build_Config: Release
-      Solution: Fop.sln
+      Solution: fop.sln
       Test_Project_Path: Fop.Tests\Fop.Tests.csproj
 
     steps:
