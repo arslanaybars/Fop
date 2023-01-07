@@ -1,0 +1,42 @@
+name: Fop.Nuget
+
+on:
+  create:
+    branches: 
+      - release/**
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest                           
+
+    env:
+      Build_Config: Release
+      Solution: fop.sln
+      Test_Project_Path: Fop.Tests\Fop.Tests.csproj
+      
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Get Build Version
+      run: |
+        Import-Module .\build\GetBuildVersion.psm1
+        Write-Host $Env:GITHUB_REF
+        $version = GetBuildVersion -VersionString $Env:GITHUB_REF
+        echo "Build_Version=$version" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+      shell: pwsh
+      
+    - name: Install .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    
+    - name: Restore dependencies
+      run: nuget restore $Solution
+    
+    - name: Build
+      run: dotnet build $Solution --configuration $Build_Config -p:Version=$Build_Version --no-restore
+      
+    - name: Publish
+      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
