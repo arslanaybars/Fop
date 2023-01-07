@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace Fop.Filter;
 
-namespace Fop.Filter
+public interface IFilterRequest
 {
-    public interface IFilterRequest
-    {
-        IEnumerable<IFilterList> FilterList { get; }
-    }
+    IEnumerable<IFilterList> FilterList { get; }
 }

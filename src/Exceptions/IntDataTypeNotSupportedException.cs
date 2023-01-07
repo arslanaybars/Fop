@@ -1,7 +1,6 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class IntDataTypeNotSupportedException : FopException
 {
-    public class IntDataTypeNotSupportedException : FopException
-    {
-        public IntDataTypeNotSupportedException(string message) : base(message) { }
-    }
+    public IntDataTypeNotSupportedException(string message) : base(message) { }
 }

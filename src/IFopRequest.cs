@@ -2,9 +2,8 @@
 using Fop.Order;
 using Fop.Page;
 
-namespace Fop
+namespace Fop;
+
+public interface IFopRequest : IFilterRequest, IOrderRequest, IPageRequest
 {
-    public interface IFopRequest : IFilterRequest, IOrderRequest, IPageRequest
-    {
-    }
 }

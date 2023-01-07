@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
+﻿namespace Fop.Filter;
 
-namespace Fop.Filter
+public interface IFilterList
 {
-    public interface IFilterList
-    {
-        FilterLogic Logic { get; set; }
+    FilterLogic Logic { get; set; }
 
-        IEnumerable<IFilter> Filters { get; set; }
-    }
+    IEnumerable<IFilter> Filters { get; set; }
 }

@@ -1,13 +1,12 @@
-﻿namespace Fop
+﻿namespace Fop;
+
+public interface IFopQuery
 {
-    public interface IFopQuery
-    {
-        string Filter { get; set; }
+    string Filter { get; set; }
 
-        string Order { get; set; }
+    string Order { get; set; }
 
-        int PageNumber { get; set; }
+    int PageNumber { get; set; }
 
-        int PageSize { get; set; }
-    }
+    int PageSize { get; set; }
 }

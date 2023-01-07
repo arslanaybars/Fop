@@ -1,8 +1,7 @@
-﻿namespace Fop.Order
+﻿namespace Fop.Order;
+
+public enum OrderDirection : byte
 {
-    public enum OrderDirection : byte
-    {
-        Asc,
-        Desc
-    }
+    Asc,
+    Desc
 }

@@ -1,9 +1,8 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class GuidDataTypeNotSupportedException : FopException
 {
-    public class GuidDataTypeNotSupportedException : FopException
-    {
 
-        public GuidDataTypeNotSupportedException(string message) : base(message) { }
+    public GuidDataTypeNotSupportedException(string message) : base(message) { }
 
-    }
 }

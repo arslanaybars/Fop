@@ -1,5 +1,4 @@
-﻿namespace Fop.Strategies
-{
-    public class FloatDataTypeStrategy : NumericDataTypeStrategy
-    { }
-}
+﻿namespace Fop.Strategies;
+
+public class FloatDataTypeStrategy : NumericDataTypeStrategy
+{ }

@@ -1,9 +1,8 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class StringDataTypeNotSupportedException : FopException
 {
-    public class StringDataTypeNotSupportedException : FopException
-    {
 
-        public StringDataTypeNotSupportedException(string message) : base(message) { }
+    public StringDataTypeNotSupportedException(string message) : base(message) { }
 
-    }
 }

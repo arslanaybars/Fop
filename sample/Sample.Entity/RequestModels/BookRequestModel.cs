@@ -1,7 +1,6 @@
 ﻿
-namespace Sample.Entity.RequestModels
+namespace Sample.Entity.RequestModels;
+
+public class BookRequestModel //: FopRequest
 {
-    public class BookRequestModel //: FopRequest
-    {
-    }
 }

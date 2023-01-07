@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Fop;
+﻿using Fop;
 using Sample.Entity;
 
-namespace Sample.Repository
+namespace Sample.Repository;
+
+public interface IStudentRepository
 {
-    public interface IStudentRepository
-    {
-        Task<(List<Student>, int)> RetrieveStudents(IFopRequest request);
-    }
+    Task<(List<Student>, int)> RetrieveStudents(IFopRequest request);
 }

@@ -1,7 +1,6 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class LongDataTypeNotSupportedException : FopException
 {
-    public class LongDataTypeNotSupportedException : FopException
-    {
-        public LongDataTypeNotSupportedException(string message) : base(message) { }
-    }
+    public LongDataTypeNotSupportedException(string message) : base(message) { }
 }

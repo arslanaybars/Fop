@@ -1,7 +1,6 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class EnumDataTypeNotSupportedException : FopException
 {
-    public class EnumDataTypeNotSupportedException : FopException
-    {
-        public EnumDataTypeNotSupportedException(string message) : base(message) { }
-    }
+    public EnumDataTypeNotSupportedException(string message) : base(message) { }
 }

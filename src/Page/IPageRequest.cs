@@ -1,9 +1,8 @@
-﻿namespace Fop.Page
-{
-    public interface IPageRequest
-    {
-        int PageNumber { get; set; }
+﻿namespace Fop.Page;
 
-        int PageSize { get; set; }
-    }
+public interface IPageRequest
+{
+    int PageNumber { get; set; }
+
+    int PageSize { get; set; }
 }

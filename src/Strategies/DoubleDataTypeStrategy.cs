@@ -1,5 +1,4 @@
-﻿namespace Fop.Strategies
-{
-    public class DoubleDataTypeStrategy : NumericDataTypeStrategy
-    { }
-}
+﻿namespace Fop.Strategies;
+
+public class DoubleDataTypeStrategy : NumericDataTypeStrategy
+{ }

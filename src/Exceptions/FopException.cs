@@ -1,13 +1,10 @@
-﻿using System;
+﻿namespace Fop.Exceptions;
 
-namespace Fop.Exceptions
+public class FopException : Exception
 {
-    public class FopException : Exception
-    {
-        public FopException() { }
+    public FopException() { }
 
-        public FopException(string message) : base(message) { }
+    public FopException(string message) : base(message) { }
 
-        public FopException(string message, Exception inner) : base(message, inner) { }
-    }
+    public FopException(string message, Exception inner) : base(message, inner) { }
 }

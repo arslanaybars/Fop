@@ -1,9 +1,8 @@
-﻿namespace Fop.Order
-{
-    public interface IOrderRequest
-    {
-        string OrderBy { get; }
+﻿namespace Fop.Order;
 
-        OrderDirection Direction { get; }
-    }
+public interface IOrderRequest
+{
+    string OrderBy { get; }
+
+    OrderDirection Direction { get; }
 }

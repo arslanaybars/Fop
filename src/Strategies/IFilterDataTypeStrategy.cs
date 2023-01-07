@@ -1,9 +1,8 @@
 ﻿using Fop.Filter;
 
-namespace Fop.Strategies
+namespace Fop.Strategies;
+
+public interface IFilterDataTypeStrategy
 {
-    public interface IFilterDataTypeStrategy
-    {
-        string ConvertFilterToText(IFilter filter);
-    }
+    string ConvertFilterToText(IFilter filter);
 }

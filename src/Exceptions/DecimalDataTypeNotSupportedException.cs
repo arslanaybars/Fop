@@ -1,7 +1,6 @@
-﻿namespace Fop.Exceptions
+﻿namespace Fop.Exceptions;
+
+public class DecimalDataTypeNotSupportedException : FopException
 {
-    public class DecimalDataTypeNotSupportedException : FopException
-    {
-        public DecimalDataTypeNotSupportedException(string message) : base(message) { }
-    }
+    public DecimalDataTypeNotSupportedException(string message) : base(message) { }
 }
