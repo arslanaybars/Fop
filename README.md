@@ -87,11 +87,6 @@ Works for multiple filter logic as well! 🎉
 
 I don't want to make readme page so crowdy. please visit the [wiki page](https://github.com/arslanaybars/Fop/wiki) to see more feature of the package
 
-### Next Things..
-- LOGO
-- Better unit tests
-- Improved sample
-
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
